@@ -1,0 +1,30 @@
+#contact {
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    background: black;
+    color: orange;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-top: 210px;
+    padding-left: 80px;
+}
+
+#name {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+td:nth-child(2) a {
+    color: gold;
+}
+
+td:nth-child(2) a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-field {
+    font-weight: bold;
+}

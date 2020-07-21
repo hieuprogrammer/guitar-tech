@@ -1,0 +1,22 @@
+package io.hieu.guitartech.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class GuitarDto {
+    private Long id;
+    private Long brandId;
+    private String brandName;
+    private String model;
+    private int numberOfFrets;
+    private int numberOfStrings;
+    private int numberOfPickups;
+    private String pickupsType;
+    private double price;
+}

@@ -1,0 +1,72 @@
+package io.hieu.guitartech.services.impl;
+
+import io.hieu.guitartech.beanmappers.BrandMapper;
+import io.hieu.guitartech.beans.Brand;
+import io.hieu.guitartech.dto.BrandDto;
+import io.hieu.guitartech.repositories.IBrandRepository;
+import io.hieu.guitartech.services.IBrandService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional
+public class BrandServiceImpl implements IBrandService {
+    @Autowired
+    IBrandRepository brandRepository;
+
+    @Autowired
+    public BrandServiceImpl(IBrandRepository brandRepository) {
+        this.brandRepository = brandRepository;
+    }
+
+    @Override
+    public List<BrandDto> findAll() {
+        List<Brand> allBrands = brandRepository.findAll();
+        List<BrandDto> brandDTOs = new ArrayList<BrandDto>();
+        for (Brand brand : allBrands) {
+            brandDTOs.add(BrandMapper.brandToBrandDto(brand));
+        }
+        return brandDTOs;
+    }
+
+    @Override
+    public Optional<BrandDto> findById(Long id) {
+        return brandRepository.findById(id).map(brand -> BrandMapper.brandToBrandDto(brand));
+    }
+
+    @Override
+    public BrandDto create(BrandDto brandDto) {
+        Brand brand = BrandMapper.brandDtoToBrand(brandDto);
+        brand = brandRepository.save(brand);
+        return BrandMapper.brandToBrandDto(brand);
+    }
+
+    @Override
+    public BrandDto update(BrandDto brandDto, Long id) {
+        Optional<Brand> selectedBrand = brandRepository.findById(id);
+        if (!selectedBrand.isPresent()) {
+            throw new RuntimeException("No brand with ID number: " + id + " found in database!");
+        }
+        Brand brand = selectedBrand.get();
+        brand.setName(brandDto.getName());
+        return BrandMapper.brandToBrandDto(brand);
+    }
+
+    @Override
+    public Page<BrandDto> findAll(Pageable pageable) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+        brandRepository.deleteById(id);
+    }
+}

@@ -1,0 +1,59 @@
+#sign-up {
+    background: gold;
+    width: 900px;
+    height: 900px;
+    border-radius: 500px;
+    padding-top: 130px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#sign-up-heading {
+    font-size: 70px;
+    color: blue;
+    font-weight: bold;
+}
+
+.sign-up-field {
+    color: black;
+    font-weight: bold;
+}
+
+.sign-up-field-input {
+    text-align: center;
+    border-radius: 10px;
+    width: 250px;
+}
+
+#btn-sign-up {
+    background: black;
+    color: gold;
+    font-weight: bold;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#btn-sign-up:hover {
+    color: yellow;
+}
+
+#btn-reset {
+    background: black;
+    color: gold;
+    font-weight: bold;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#btn-reset:hover {
+    color: yellow;
+}
+
+#sign-in {
+    font-weight: bold;
+}
+
+#sign-in:hover {
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,59 @@
+package io.hieu.guitartech.controllers;
+
+import io.hieu.guitartech.dto.GuitarDto;
+import io.hieu.guitartech.services.IGuitarService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+public class GuitarController {
+    @Autowired
+    private IGuitarService guitarService;
+
+    @GetMapping(path = "/")
+    @ResponseBody
+    public String index() {
+        return "<h1 style=\"text-align: center; font-family: arial, sans-serif; color: gold;\">Guitar Technology</h1>";
+    }
+
+    @GetMapping(path = "/guitartech/v0/guitars")
+    public ResponseEntity<List<GuitarDto>> findAllGuitars() {
+        List<GuitarDto> allGuitars = guitarService.findAll();
+        if (allGuitars.isEmpty()) {
+            return new ResponseEntity<List<GuitarDto>>(allGuitars, HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<GuitarDto>>(allGuitars, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/guitartech/v0/guitars/{guitarId}")
+    public ResponseEntity<GuitarDto> findGuitarById(@PathVariable("guitarId") Long guitarId) {
+        Optional<GuitarDto> guitar = guitarService.findById(guitarId);
+        if (guitar.isPresent()) {
+            return new ResponseEntity<>(guitar.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping(path = "/guitartech/v0/guitars")
+    public ResponseEntity<GuitarDto> createGuitar(@RequestBody GuitarDto guitarDto) {
+        guitarDto = guitarService.create(guitarDto);
+        return new ResponseEntity<GuitarDto>(guitarDto, HttpStatus.CREATED);
+    }
+
+    @PutMapping(path = "/guitartech/v0/guitars/{guitarId}")
+    public ResponseEntity<GuitarDto> updateGuitar(@PathVariable("guitarId") Long guitarId, @RequestBody GuitarDto guitarDto) {
+        guitarDto = guitarService.update(guitarDto, guitarId);
+        return new ResponseEntity<GuitarDto>(guitarDto, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/guitartech/v0/guitars/{guitarId}")
+    public ResponseEntity<Void> deleteGuitar(@PathVariable("guitarId") Long guitarId) {
+        guitarService.delete(guitarId);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+}

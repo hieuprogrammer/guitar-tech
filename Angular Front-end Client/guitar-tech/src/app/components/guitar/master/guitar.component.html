@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div align="center">
+        <h3 class="display-3">GUITARS</h3>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-responsive text-center">
+        <thead class="thead-dark">
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Number of Frets</th>
+            <th>Number of Strings</th>
+            <th>Number of Pickups</th>
+            <th>Pickups Type</th>
+            <th>Price</th>
+            <th colspan="3">Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let guitar of guitars">
+                <td class="bg-warning font-weight-bold">{{guitar.brandName}}</td>
+                <td class="font-weight-bold text-primary">{{guitar.model}}</td>
+                <td>{{guitar.numberOfFrets}}</td>
+                <td>{{guitar.numberOfStrings}}</td>
+                <td>{{guitar.numberOfPickups}}</td>
+                <td>{{guitar.pickupsType}}</td>
+                <td class="text-warning font-weight-bold">{{guitar.price | currency}}</td>
+                <td><button class="btn btn-primary">View</button></td>
+                <td><button class="btn btn-success">Update</button></td>
+                <td><button class="btn btn-danger">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning btn-lg btn-block">Add Guitar</button>
+</div>
