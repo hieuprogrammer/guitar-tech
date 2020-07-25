@@ -10,8 +10,11 @@ import lombok.*;
 public class BrandDto extends BaseEntity {
     private String name;
 
-    public BrandDto(Long id, String name) {
+    private String logoUrl;
+
+    public BrandDto(Long id, String name, String logoUrl) {
         super(id);
         this.name = name;
+        this.logoUrl = logoUrl;
     }
 }

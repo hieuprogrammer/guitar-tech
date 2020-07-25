@@ -1,12 +1,14 @@
 export class Guitar {
-    constructor(
-        public brandId: string,
-        public brandName: string,
-        public model: string,
-        public numberOfFrets: number,
-        public numberOfStrings: number,
-        public numberOfPickups: number,
-        public pickupsType: string,
-        public price: number
-    ) {}
+    id: number;
+    brandId: string;
+    brandName: string;
+    model: string;
+    numberOfFrets: number;
+    numberOfStrings: number;
+    numberOfPickups: number;
+    pickupsType: string;
+    imageUrl: string;
+    price: number;
+
+    constructor() {}
 }

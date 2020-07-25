@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div align="center">
+        <h4 class="display-4 font-weight-bold">ADD BRAND</h4>
+        <form (ngSubmit)="addBrand()" #brandForm="ngForm">
+            <fieldset class="form-group">
+                <label class="text-primary font-weight-bold">Brand name:</label>
+                <input #brandName="ngModel" class="form-control text-center" type="text" [(ngModel)]="brand.name" name="brandName" required="required"/>
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="text-primary font-weight-bold">Brand logo:</label>
+                <input #brandLogo="ngModel" class="form-control text-center" type="text" [(ngModel)]="brand.logoUrl" name="brandLogo" required="required"/>
+            </fieldset>
+            <button type="submit" class="btn btn-warning">Save</button>
+        </form>
+    </div>
+</div>

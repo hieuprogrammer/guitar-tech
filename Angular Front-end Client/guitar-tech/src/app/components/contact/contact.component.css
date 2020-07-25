@@ -2,8 +2,7 @@
     text-align: center;
     width: 600px;
     height: 600px;
-    background: black;
-    color: orange;
+    background: gold;
     border-radius: 50%;
     margin: 0 auto;
     margin-top: 30px;
@@ -17,7 +16,8 @@
 }
 
 td:nth-child(2) a {
-    color: gold;
+    text-decoration: none;
+    color: black;
 }
 
 td:nth-child(2) a:hover {

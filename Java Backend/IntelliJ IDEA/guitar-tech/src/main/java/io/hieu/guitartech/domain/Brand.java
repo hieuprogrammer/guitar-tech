@@ -1,12 +1,11 @@
 package io.hieu.guitartech.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,10 @@ import java.util.List;
 @ToString(exclude = "guitars")
 @Entity
 public class Brand extends BaseEntity {
+    @NotBlank(message = "Brand name is required!")
     private String name;
+
+    private String logoUrl;
 
     @OneToMany(
             mappedBy = "brand",

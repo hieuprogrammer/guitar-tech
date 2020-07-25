@@ -16,6 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GuitarDetailsComponent } from './components/guitar/details/guitar-details/guitar-details.component';
+import { BrandDetailsComponent } from './components/brand/details/brand-details/brand-details.component';
+import { BrandCreateComponent } from './components/brand/create/brand-create/brand-create.component';
+import { BrandUpdateComponent } from './components/brand/update/brand-update/brand-update.component';
+import { GuitarUpdateComponent } from './components/guitar/update/guitar-update/guitar-update.component';
+import { GuitarCreateComponent } from './components/guitar/create/guitar-create/guitar-create.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { GuitarDetailsComponent } from './components/guitar/details/guitar-detai
     AboutComponent,
     NavbarComponent,
     FooterComponent,
-    GuitarDetailsComponent
+    GuitarDetailsComponent,
+    BrandDetailsComponent,
+    BrandCreateComponent,
+    BrandUpdateComponent,
+    GuitarUpdateComponent,
+    GuitarCreateComponent
   ],
   imports: [
     BrowserModule,

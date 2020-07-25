@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div align="center">
+        <h3 class="display-3 text-warning font-weight-bold">{{brand.name}}</h3>
+        <p>
+            <img src="{{brand.logoUrl}}" 
+                 alt="{{brand.name}}" 
+                 title="{{brand.name}}" 
+                 width=300px heigh="300px" 
+                 class="rounded img-fluid"
+            />
+        </p><br><hr>
+        <h4 class="display-4 text-primary font-weight-bold">Update brand:</h4>
+        <form (ngSubmit)="updateBrand()" #brandForm="ngForm">
+            <fieldset class="form-group">
+                <label class="text-primary font-weight-bold">Brand name:</label>
+                <input #brandName="ngModel" class="form-control text-center" type="text" [(ngModel)]="brand.name" name="brandName" required="required"/>
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="text-primary font-weight-bold">Brand logo:</label>
+                <input #brandLogo="ngModel" class="form-control text-center" type="text" [(ngModel)]="brand.logoUrl" name="brandLogo" required="required"/>
+            </fieldset>
+            <button type="submit" class="btn btn-warning">Save</button>
+            <a routerLink="/brands">
+                <button class="btn btn-primary ml-2">Back</button>
+            </a>
+        </form>
+    </div>
+</div>

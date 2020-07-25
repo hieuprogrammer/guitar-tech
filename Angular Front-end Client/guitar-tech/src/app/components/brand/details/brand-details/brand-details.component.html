@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div align="center">
+        <h3 class="display-3 text-warning font-weight-bold">{{brand.name}}</h3>
+        <p>
+            <img src="{{brand.logoUrl}}" 
+                 alt="{{brand.name}}" 
+                 title="{{brand.name}}" 
+                 width=300px heigh="300px" 
+                 class="rounded img-fluid"
+            />
+        </p>
+        <a routerLink="/brands">
+            <button class="btn btn-warning">Back</button>
+        </a>
+    </div>
+</div>

@@ -1,12 +1,12 @@
 package io.hieu.guitartech.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +22,7 @@ public class Guitar extends BaseEntity {
     )
     private Brand brand;
 
+    @NotBlank(message = "Guitar model is required!")
     private String model;
 
     private Integer numberOfFrets;
@@ -31,6 +32,8 @@ public class Guitar extends BaseEntity {
     private Integer numberOfPickups;
 
     private String pickupsType;
+
+    private String imageUrl;
 
     private Double price;
 }

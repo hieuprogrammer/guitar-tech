@@ -1,5 +1,7 @@
 export class Brand {
-    constructor(
-        public name: string
-    ) {}
+    id: number;
+    name: string;
+    logoUrl: string;
+
+    constructor() {}
 }

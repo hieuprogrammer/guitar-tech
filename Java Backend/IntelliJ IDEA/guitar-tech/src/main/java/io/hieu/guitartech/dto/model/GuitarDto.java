@@ -22,9 +22,11 @@ public class GuitarDto extends BaseEntity {
 
     private String pickupsType;
 
+    private String imageUrl;
+
     private Double price;
 
-    public GuitarDto(Long id, Long brandId, String brandName, String model, Integer numberOfFrets, Integer numberOfStrings, Integer numberOfPickups, String pickupsType, Double price) {
+    public GuitarDto(Long id, Long brandId, String brandName, String model, Integer numberOfFrets, Integer numberOfStrings, Integer numberOfPickups, String pickupsType, String imageUrl, Double price) {
         super(id);
         this.brandId = brandId;
         this.brandName = brandName;
@@ -33,6 +35,7 @@ public class GuitarDto extends BaseEntity {
         this.numberOfStrings = numberOfStrings;
         this.numberOfPickups = numberOfPickups;
         this.pickupsType = pickupsType;
+        this.imageUrl = imageUrl;
         this.price = price;
     }
 }

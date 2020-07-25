@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-brand',
@@ -10,10 +11,21 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
   brands: Brand[];
 
-  constructor(private brandService: BrandService) { }
+  constructor(
+    private brandService: BrandService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.getBrands();
+  }
+
+  addBrand() {
+    this.router.navigate(['create-brand']);
+  }
+
+  updateBrand(id: number) {
+    this.router.navigate(['update-brand', id]);
   }
 
   getBrands() {
@@ -23,4 +35,11 @@ export class BrandComponent implements OnInit {
     });
   }
 
+  getBrandById(id: number) {
+    this.router.navigate(['brands', id]);
+  }
+
+  deleteBrand(id: number) {
+    this.brandService.deleteBrandById(id).subscribe(response => this.getBrands());
+  }
 }

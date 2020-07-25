@@ -47,7 +47,7 @@ public class GuitarServiceImpl implements GuitarService {
     }
 
     @Override
-    public GuitarDto update(GuitarDto guitarDto, Long id) {
+    public GuitarDto update(Long id, GuitarDto guitarDto) {
         Guitar guitar = guitarRepository.findById(id).get();
         guitar.setBrand(new Brand(guitarDto.getBrandId()));
         guitar.setModel(guitarDto.getModel());
@@ -55,6 +55,7 @@ public class GuitarServiceImpl implements GuitarService {
         guitar.setNumberOfStrings(guitarDto.getNumberOfStrings());
         guitar.setNumberOfPickups(guitarDto.getNumberOfPickups());
         guitar.setPickupsType(guitarDto.getPickupsType());
+        guitar.setImageUrl(guitarDto.getImageUrl());
         guitar.setPrice(guitarDto.getPrice());
         return GuitarMapper.toGuitarDto(guitar);
     }

@@ -46,9 +46,10 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public BrandDto update(BrandDto brandDto, Long id) {
+    public BrandDto update(Long id, BrandDto brandDto) {
         Brand brand = brandRepository.findById(id).get();
         brand.setName(brandDto.getName());
+        brand.setLogoUrl(brandDto.getLogoUrl());
         return BrandMapper.toBrandDto(brand);
     }
 

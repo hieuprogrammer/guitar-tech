@@ -12,7 +12,7 @@ public interface GuitarService {
 
     GuitarDto findById(Long id);
 
-    GuitarDto update(GuitarDto guitarDto, Long id);
+    GuitarDto update(Long id, GuitarDto guitarDto);
 
     void delete(Guitar guitar);
 

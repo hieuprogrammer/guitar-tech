@@ -11,13 +11,30 @@ import java.util.List;
 @RequestMapping(path = { "/api/v1/guitars", "/api/v1/guitars.html" })
 @RestController
 public class GuitarController {
+    /* Fields */
     private final GuitarService guitarService;
 
+    /* Constructors */
     @Autowired
     public GuitarController(GuitarService guitarService) {
         this.guitarService = guitarService;
     }
 
+    /* Request methods */
+    /* CREATE (POST mappings) */
+    @PostMapping(path = { "", "/" })
+    public GuitarDto addGuitar(@RequestBody GuitarDto guitarDto) {
+        return this.guitarService.save(guitarDto);
+    }
+
+    /* UPDATE (PUT mappings) */
+    @PutMapping(path = { "/{guitarId}" })
+    public GuitarDto updateGuitar(@PathVariable("guitarId") Long guitarId, @RequestBody GuitarDto guitarDto) {
+        guitarDto = guitarService.update(guitarId, guitarDto);
+        return guitarDto;
+    }
+
+    /* RETRIEVE (GET mappings) */
     @GetMapping(path = { "", "/" })
     public List<GuitarDto> getGuitars() {
         return this.guitarService.findAll();
@@ -28,17 +45,7 @@ public class GuitarController {
         return this.guitarService.findById(guitarId);
     }
 
-    @PostMapping(path = { "", "/" })
-    public GuitarDto addGuitar(@RequestBody GuitarDto guitarDto) {
-        return this.guitarService.save(guitarDto);
-    }
-
-    @PutMapping(path = { "/{guitarId}" })
-    public GuitarDto updateGuitar(@PathVariable("guitarId") Long guitarId, @RequestBody GuitarDto guitarDto) {
-        guitarDto = guitarService.update(guitarDto, guitarId);
-        return guitarDto;
-    }
-
+    /* DELETE (DELETE mappings) */
     @DeleteMapping(path = { "/{guitarId}" })
     public void deleteGuitar(@PathVariable("guitarId") Long guitarId) {
         guitarService.deleteById(guitarId);

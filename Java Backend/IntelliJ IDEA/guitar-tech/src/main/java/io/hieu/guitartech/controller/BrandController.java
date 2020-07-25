@@ -11,13 +11,30 @@ import java.util.List;
 @RequestMapping(path = { "/api/v1/brands", "/api/v1/brands.html" })
 @RestController
 public class BrandController {
+    /* Fields */
     private final BrandService brandService;
 
+    /* Constructors */
     @Autowired
     public BrandController(BrandService brandService) {
         this.brandService = brandService;
     }
 
+    /* Request methods */
+    /* CREATE (POST mappings) */
+    @PostMapping(path = { "", "/" })
+    public BrandDto addBrand(@RequestBody BrandDto brandDto) {
+        return this.brandService.save(brandDto);
+    }
+
+    /* UPDATE (PUT mappings) */
+    @PutMapping(path = { "/{brandId}" })
+    public BrandDto updateBrand(@PathVariable("brandId") Long brandId, @RequestBody BrandDto brandDto) {
+        brandDto = brandService.update(brandId, brandDto);
+        return brandDto;
+    }
+
+    /* RETRIEVE (GET mappings) */
     @GetMapping(path = { "", "/" })
     public List<BrandDto> getBrands() {
         return this.brandService.findAll();
@@ -28,17 +45,7 @@ public class BrandController {
         return this.brandService.findById(brandId);
     }
 
-    @PostMapping(path = { "", "/" })
-    public BrandDto addBrand(@RequestBody BrandDto brandDto) {
-        return this.brandService.save(brandDto);
-    }
-
-    @PutMapping(path = { "/{brandId}" })
-    public BrandDto updateBrand(@PathVariable("brandId") Long brandId, @RequestBody BrandDto brandDto) {
-        brandDto = brandService.update(brandDto, brandId);
-        return brandDto;
-    }
-
+    /* DELETE (DELETE mappings) */
     @DeleteMapping(path = { "/{brandId}" })
     public void deleteBrand(@PathVariable("brandId") Long brandId) {
         brandService.deleteById(brandId);
