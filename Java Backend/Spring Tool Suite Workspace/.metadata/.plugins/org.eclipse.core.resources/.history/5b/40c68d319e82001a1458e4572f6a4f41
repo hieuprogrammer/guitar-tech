@@ -1,0 +1,82 @@
+package io.hieu.guitartech.services.impl;
+
+import io.hieu.guitartech.beanmappers.GuitarMapper;
+import io.hieu.guitartech.beans.Guitar;
+import io.hieu.guitartech.dto.GuitarDto;
+import io.hieu.guitartech.repositories.IBrandRepository;
+import io.hieu.guitartech.repositories.IGuitarRepository;
+import io.hieu.guitartech.services.IGuitarService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional
+public class GuitarServiceImpl implements IGuitarService {
+    @Autowired
+    private IGuitarRepository guitarRepository;
+    @Autowired
+    private IBrandRepository brandRepository;
+
+    @Autowired
+    public GuitarServiceImpl(IGuitarRepository guitarRepository) {
+        this.guitarRepository = guitarRepository;
+    }
+
+    @Override
+    public List<GuitarDto> findAll() {
+        List<Guitar> allGuitars = guitarRepository.findAll();
+        List<GuitarDto> guitarDTOs= new ArrayList<GuitarDto>();
+        for (Guitar guitar : allGuitars) {
+            guitarDTOs.add(GuitarMapper.guitarToGuitarDto(guitar));
+        }
+
+        return guitarDTOs;
+    }
+
+    @Override
+    public Optional<GuitarDto> findById(Long id) {
+        return guitarRepository.findById(id).map(guitar -> GuitarMapper.guitarToGuitarDto(guitar));
+    }
+
+    @Override
+    public GuitarDto create(GuitarDto guitarDto) {
+        Guitar guitar = GuitarMapper.guitarDtoToGuitar(guitarDto);
+        guitar = guitarRepository.save(guitar);
+        return GuitarMapper.guitarToGuitarDto(guitar);
+    }
+
+    @Override
+    public GuitarDto update(GuitarDto guitarDto, Long id) {
+        Optional<Guitar> selectedGuitar = guitarRepository.findById(id);
+        if (!selectedGuitar.isPresent()) {
+            throw new RuntimeException("No guitar with ID number: " + id + " found in database!");
+        }
+        Guitar guitar = selectedGuitar.get();
+        guitar.setBrand(brandRepository.getOne(guitarDto.getBrandId()));
+        guitar.setModel(guitarDto.getModel());
+        guitar.setNumberOfFrets(guitarDto.getNumberOfFrets());
+        guitar.setNumberOfStrings(guitarDto.getNumberOfStrings());
+        guitar.setNumberOfPickups(guitarDto.getNumberOfPickups());
+        guitar.setPickupsType(guitarDto.getPickupsType());
+        guitar.setPrice(guitarDto.getPrice());
+        return GuitarMapper.guitarToGuitarDto(guitar);
+    }
+
+    @Override
+    public Page<GuitarDto> findAll(Pageable pageable) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+        guitarRepository.deleteById(id);
+    }
+}
