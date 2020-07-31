@@ -1,20 +1,21 @@
-package io.hieu.guitartech.service;
+package io.hieu.guitartech.service.v1;
 
 import io.hieu.guitartech.domain.Guitar;
 import io.hieu.guitartech.dto.model.GuitarDto;
 
 import java.util.List;
 
+@Deprecated
 public interface GuitarService {
     GuitarDto save(GuitarDto guitarDto);
 
     List<GuitarDto> findAll();
 
-    GuitarDto findById(Long id);
+    GuitarDto findById(Long guitarId);
 
-    GuitarDto update(Long id, GuitarDto guitarDto);
+    GuitarDto update(Long guitarId, GuitarDto guitarDto);
 
     void delete(Guitar guitar);
 
-    void deleteById(Long id);
+    void deleteById(Long guitarId);
 }

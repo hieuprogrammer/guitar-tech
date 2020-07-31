@@ -5,15 +5,17 @@
     </div>
     <table class="table table-striped table-bordered table-hover text-center">
         <thead class="thead-dark">
-            <th>Brand Name</th>
+            <th>Brand</th>
+            <th>Logo</th>
             <th colspan="3">Actions</th>
         </thead>
         <tbody>
             <tr *ngFor="let brand of brands">
-                <td class="text-warning font-weight-bold">{{brand.name}}</td>
-                <td><button class="btn btn-primary" (click)="getBrandById(brand.id)">View</button></td>
-                <td><button class="btn btn-success" (click)="updateBrand(brand.id)">Update</button></td>
-                <td><button class="btn btn-danger" (click)="deleteBrand(brand.id)">Delete</button></td>
+                <td class="bg-warning font-weight-bold align-middle">{{brand.name}}</td>
+                <td class="align-middle"><img [src]="brand.logoUrl" class="rounded img-fluid" id="brand-logo"/></td>
+                <td class="align-middle"><button class="btn btn-primary brand-button" (click)="getBrandById(brand.id)">View</button></td>
+                <td class="align-middle"><button class="btn btn-success brand-button" (click)="updateBrand(brand.id)">Update</button></td>
+                <td class="align-middle"><button class="btn btn-danger brand-button" (click)="deleteBrand(brand.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>

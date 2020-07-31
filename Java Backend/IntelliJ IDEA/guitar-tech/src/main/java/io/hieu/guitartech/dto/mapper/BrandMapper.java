@@ -5,7 +5,11 @@ import io.hieu.guitartech.dto.model.BrandDto;
 
 public class BrandMapper {
     public static BrandDto toBrandDto(Brand brand) {
-        return new BrandDto(brand.getId(), brand.getName(), brand.getLogoUrl());
+        return new BrandDto(
+                brand.getId(),
+                brand.getName(),
+                brand.getLogoUrl()
+        );
     }
 
     public static Brand toBrand(BrandDto brandDto) {

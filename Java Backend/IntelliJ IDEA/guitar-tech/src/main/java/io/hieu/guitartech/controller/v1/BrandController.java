@@ -1,12 +1,13 @@
-package io.hieu.guitartech.controller;
+package io.hieu.guitartech.controller.v1;
 
 import io.hieu.guitartech.dto.model.BrandDto;
-import io.hieu.guitartech.service.BrandService;
+import io.hieu.guitartech.service.v1.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Deprecated
 @CrossOrigin(origins = { "http://127.0.0.1:4200" })
 @RequestMapping(path = { "/api/v1/brands", "/api/v1/brands.html" })
 @RestController

@@ -1,11 +1,11 @@
-package io.hieu.guitartech.service.impl;
+package io.hieu.guitartech.service.impl.v1;
 
 import io.hieu.guitartech.domain.Brand;
 import io.hieu.guitartech.domain.Guitar;
 import io.hieu.guitartech.dto.mapper.GuitarMapper;
 import io.hieu.guitartech.dto.model.GuitarDto;
 import io.hieu.guitartech.repository.GuitarRepository;
-import io.hieu.guitartech.service.GuitarService;
+import io.hieu.guitartech.service.v1.GuitarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 @Transactional
 @Service
 public class GuitarServiceImpl implements GuitarService {
@@ -41,14 +42,14 @@ public class GuitarServiceImpl implements GuitarService {
     }
 
     @Override
-    public GuitarDto findById(Long id) {
-        Guitar guitar = guitarRepository.findById(id).get();
+    public GuitarDto findById(Long guitarId) {
+        Guitar guitar = guitarRepository.findById(guitarId).get();
         return GuitarMapper.toGuitarDto(guitar);
     }
 
     @Override
-    public GuitarDto update(Long id, GuitarDto guitarDto) {
-        Guitar guitar = guitarRepository.findById(id).get();
+    public GuitarDto update(Long guitarId, GuitarDto guitarDto) {
+        Guitar guitar = guitarRepository.findById(guitarId).get();
         guitar.setBrand(new Brand(guitarDto.getBrandId()));
         guitar.setModel(guitarDto.getModel());
         guitar.setNumberOfFrets(guitarDto.getNumberOfFrets());
@@ -66,7 +67,7 @@ public class GuitarServiceImpl implements GuitarService {
     }
 
     @Override
-    public void deleteById(Long id) {
-        guitarRepository.deleteById(id);
+    public void deleteById(Long guitarId) {
+        guitarRepository.deleteById(guitarId);
     }
 }

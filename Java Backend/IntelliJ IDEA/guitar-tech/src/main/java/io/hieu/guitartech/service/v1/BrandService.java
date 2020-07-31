@@ -1,20 +1,21 @@
-package io.hieu.guitartech.service;
+package io.hieu.guitartech.service.v1;
 
 import io.hieu.guitartech.domain.Brand;
 import io.hieu.guitartech.dto.model.BrandDto;
 
 import java.util.List;
 
+@Deprecated
 public interface BrandService {
     BrandDto save(BrandDto brandDto);
 
     List<BrandDto> findAll();
 
-    BrandDto findById(Long id);
+    BrandDto findById(Long brandId);
 
-    BrandDto update(Long id, BrandDto brandDto);
+    BrandDto update(Long brandId, BrandDto brandDto);
 
     void delete(Brand brand);
 
-    void deleteById(Long id);
+    void deleteById(Long brandId);
 }

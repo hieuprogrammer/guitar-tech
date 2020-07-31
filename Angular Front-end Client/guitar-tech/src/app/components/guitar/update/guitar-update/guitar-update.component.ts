@@ -37,4 +37,18 @@ export class GuitarUpdateComponent implements OnInit {
   updateGuitar() {
     this.guitarService.putGuitar(this.id, this.guitar).subscribe(data => this.router.navigate(['guitars']));
   }
+
+  handleFileInput(files: FileList) {
+    const file = files.item(0);
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      this.guitar.imageUrl = reader.result as string;
+    };
+
+    reader.onerror = () => {
+      console.log('Unknown error(s) occured!');
+    };
+  }
 }
