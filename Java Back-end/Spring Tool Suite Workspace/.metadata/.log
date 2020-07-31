@@ -1,0 +1,384 @@
+!SESSION 2020-04-20 00:16:37.953 -----------------------------------------------
+eclipse.buildId=4.5.1.202001211336-RELEASE
+java.version=11.0.5
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4 -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4 -data D:\Hieu\Computer_Programming\Computer_Programs\Java\guitar-tech\Spring Tool Suite Workspace -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2020-04-20 00:16:39.405
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.dash [619]
+  Unresolved requirement: Require-Bundle: org.apache.httpcomponents.httpclient
+    -> Bundle-SymbolicName: org.apache.httpcomponents.httpclient; bundle-version="4.5.6.v20190503-0009"
+       org.apache.httpcomponents.httpclient [64]
+         Unresolved requirement: Import-Package: org.apache.commons.codec.binary; version="[1.10.0,1.11.0)"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.boot.dash [osgi.identity; type="osgi.bundle"; version:Version="3.9.12.202001201914-CI-B2372"; osgi.identity="org.springframework.ide.eclipse.boot.dash"; singleton:="true"] because it is exposed to package 'javax.activation' from resources javax.activation [osgi.identity; type="osgi.bundle"; version:Version="1.1.0.v201211130549"; osgi.identity="javax.activation"] and org.jboss.tools.hibernate.libs.activation.v_1_2_0 [osgi.identity; type="osgi.bundle"; version:Version="5.4.7.v20191105-1609"; osgi.identity="org.jboss.tools.hibernate.libs.activation.v_1_2_0"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.boot.dash [osgi.identity; type="osgi.bundle"; version:Version="3.9.12.202001201914-CI-B2372"; osgi.identity="org.springframework.ide.eclipse.boot.dash"; singleton:="true"]
+    require: (osgi.wiring.bundle=javax.activation)
+     |
+    provide: osgi.wiring.bundle: javax.activation
+  javax.activation [osgi.identity; type="osgi.bundle"; version:Version="1.1.0.v201211130549"; osgi.identity="javax.activation"]
+
+Chain 2:
+  org.springframework.ide.eclipse.boot.dash [osgi.identity; type="osgi.bundle"; version:Version="3.9.12.202001201914-CI-B2372"; osgi.identity="org.springframework.ide.eclipse.boot.dash"; singleton:="true"]
+    import: (osgi.wiring.package=org.glassfish.jersey.client)
+     |
+    export: osgi.wiring.package=org.glassfish.jersey.client; uses:=org.glassfish.jersey.message.internal
+  org.glassfish.jersey.core.jersey-client [osgi.identity; type="osgi.bundle"; version:Version="2.22.1.v20161103-1916"; osgi.identity="org.glassfish.jersey.core.jersey-client"]
+    import: (&(osgi.wiring.package=org.glassfish.jersey.message.internal)(&(version>=2.22.1)(!(version>=2.23.0))))
+     |
+    export: osgi.wiring.package=org.glassfish.jersey.message.internal; uses:=javax.activation
+  org.glassfish.jersey.core.jersey-common [osgi.identity; type="osgi.bundle"; version:Version="2.22.1.v20181004-1955"; osgi.identity="org.glassfish.jersey.core.jersey-common"]
+    import: (osgi.wiring.package=javax.activation)
+     |
+    export: osgi.wiring.package: javax.activation
+  org.jboss.tools.hibernate.libs.activation.v_1_2_0 [osgi.identity; type="osgi.bundle"; version:Version="5.4.7.v20191105-1609"; osgi.identity="org.jboss.tools.hibernate.libs.activation.v_1_2_0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.jface 2 0 2020-04-20 00:16:47.764
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-20 00:16:47.764
+!MESSAGE A conflict occurred for ALT+SHIFT+X B:
+Binding(ALT+SHIFT+X B,
+	ParameterizedCommand(Command(org.springsource.ide.eclipse.boot.BootLaunchShortcut.run,Run Spring Boot App,
+		Run Spring Boot App,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41e43885,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X B,
+	ParameterizedCommand(Command(bndtools.launch.runShortcut.run,Run Bnd OSGi Run Launcher,
+		Run Bnd OSGi Run Launcher,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4131261,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-20 00:16:47.764
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@193c3b1c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43d84df1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-20 00:16:47.764
+!MESSAGE A conflict occurred for ALT+SHIFT+D B:
+Binding(ALT+SHIFT+D B,
+	ParameterizedCommand(Command(org.springsource.ide.eclipse.boot.BootLaunchShortcut.debug,Debug Spring Boot App,
+		Debug Spring Boot App,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2318651f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D B,
+	ParameterizedCommand(Command(bndtools.launch.runShortcut.debug,Debug Bnd OSGi Run Launcher,
+		Debug Bnd OSGi Run Launcher,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3f04fb07,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-04-20 00:16:52.286
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Hieu'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 2 2 2020-04-20 00:17:07.650
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+!SESSION 2020-04-20 00:17:09.001 -----------------------------------------------
+eclipse.buildId=4.5.1.202001211336-RELEASE
+java.version=11.0.5
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4 -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4 -data D:\Hieu\Computer_Programming\Computer_Programs\Java\guitar-tech\Spring Tool Suite Workspace -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.springframework.ide.eclipse.boot.dash 4 0 2020-04-20 00:17:10.367
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.dash [619]
+  Unresolved requirement: Require-Bundle: org.apache.httpcomponents.httpclient
+    -> Bundle-SymbolicName: org.apache.httpcomponents.httpclient; bundle-version="4.5.6.v20190503-0009"
+       org.apache.httpcomponents.httpclient [64]
+         Unresolved requirement: Import-Package: org.apache.commons.codec.binary; version="[1.10.0,1.11.0)"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.boot.dash [osgi.identity; type="osgi.bundle"; version:Version="3.9.12.202001201914-CI-B2372"; osgi.identity="org.springframework.ide.eclipse.boot.dash"; singleton:="true"] because it is exposed to package 'javax.activation' from resources javax.activation [osgi.identity; type="osgi.bundle"; version:Version="1.1.0.v201211130549"; osgi.identity="javax.activation"] and org.jboss.tools.hibernate.libs.activation.v_1_2_0 [osgi.identity; type="osgi.bundle"; version:Version="5.4.7.v20191105-1609"; osgi.identity="org.jboss.tools.hibernate.libs.activation.v_1_2_0"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.boot.dash [osgi.identity; type="osgi.bundle"; version:Version="3.9.12.202001201914-CI-B2372"; osgi.identity="org.springframework.ide.eclipse.boot.dash"; singleton:="true"]
+    require: (osgi.wiring.bundle=javax.activation)
+     |
+    provide: osgi.wiring.bundle: javax.activation
+  javax.activation [osgi.identity; type="osgi.bundle"; version:Version="1.1.0.v201211130549"; osgi.identity="javax.activation"]
+
+Chain 2:
+  org.springframework.ide.eclipse.boot.dash [osgi.identity; type="osgi.bundle"; version:Version="3.9.12.202001201914-CI-B2372"; osgi.identity="org.springframework.ide.eclipse.boot.dash"; singleton:="true"]
+    import: (osgi.wiring.package=org.glassfish.jersey.client)
+     |
+    export: osgi.wiring.package=org.glassfish.jersey.client; uses:=org.glassfish.jersey.message.internal
+  org.glassfish.jersey.core.jersey-client [osgi.identity; type="osgi.bundle"; version:Version="2.22.1.v20161103-1916"; osgi.identity="org.glassfish.jersey.core.jersey-client"]
+    import: (&(osgi.wiring.package=org.glassfish.jersey.message.internal)(&(version>=2.22.1)(!(version>=2.23.0))))
+     |
+    export: osgi.wiring.package=org.glassfish.jersey.message.internal; uses:=javax.activation
+  org.glassfish.jersey.core.jersey-common [osgi.identity; type="osgi.bundle"; version:Version="2.22.1.v20181004-1955"; osgi.identity="org.glassfish.jersey.core.jersey-common"]
+    import: (osgi.wiring.package=javax.activation)
+     |
+    export: osgi.wiring.package: javax.activation
+  org.jboss.tools.hibernate.libs.activation.v_1_2_0 [osgi.identity; type="osgi.bundle"; version:Version="5.4.7.v20191105-1609"; osgi.identity="org.jboss.tools.hibernate.libs.activation.v_1_2_0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.jface 2 0 2020-04-20 00:17:17.795
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-20 00:17:17.795
+!MESSAGE A conflict occurred for ALT+SHIFT+X B:
+Binding(ALT+SHIFT+X B,
+	ParameterizedCommand(Command(org.springsource.ide.eclipse.boot.BootLaunchShortcut.run,Run Spring Boot App,
+		Run Spring Boot App,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6662974a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X B,
+	ParameterizedCommand(Command(bndtools.launch.runShortcut.run,Run Bnd OSGi Run Launcher,
+		Run Bnd OSGi Run Launcher,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4fce655d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-20 00:17:17.795
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@df5f657,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@68908be7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-20 00:17:17.795
+!MESSAGE A conflict occurred for ALT+SHIFT+D B:
+Binding(ALT+SHIFT+D B,
+	ParameterizedCommand(Command(org.springsource.ide.eclipse.boot.BootLaunchShortcut.debug,Debug Spring Boot App,
+		Debug Spring Boot App,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1aba8978,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D B,
+	ParameterizedCommand(Command(bndtools.launch.runShortcut.debug,Debug Bnd OSGi Run Launcher,
+		Debug Bnd OSGi Run Launcher,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2662e3ff,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-04-20 00:17:22.351
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Hieu'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-04-20 00:17:59.921
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-04-20 00:17:59.943
+!MESSAGE IvyDE plugin started
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:32.758
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:32.767
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@1e88b948[org.springframework.tooling.boot.ls:1.15.0.202001210741(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:32.776
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:32.823
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.657
+!MESSAGE Boot LS startup time from start to initialized: 1863ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.687
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.IqaMheJgisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.697
+!MESSAGE subscribing to classpath changes: sts4.classpath.IqaMheJg isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.708
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.718
+!MESSAGE subsribers = {sts4.classpath.IqaMheJg=Send Classpath Notifications(94)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.726
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.735
+!MESSAGE project guitar-tech ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.742
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.749
+!MESSAGE Preparing classpath changed notification guitar-tech
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.754
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.IqaMheJg => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.762
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.777
+!MESSAGE classpath=101 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.786
+!MESSAGE buffering callback sts4.classpath.IqaMheJg guitar-tech false 101
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.793
+!MESSAGE executing callback sts4.classpath.IqaMheJg 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 00:18:34.823
+!MESSAGE executing callback sts4.classpath.IqaMheJg SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2020-04-20 00:19:43.616
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:36.734
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.IqaMheJg
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:36.744
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.IqaMheJg
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:36.751
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:36.758
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.IqaMheJg => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:39.227
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:39.234
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@1e88b948[org.springframework.tooling.boot.ls:1.15.0.202001210741(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:39.241
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:39.864
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:39.874
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@1e88b948[org.springframework.tooling.boot.ls:1.15.0.202001210741(id=631)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:39.886
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.664
+!MESSAGE Boot LS startup time from start to initialized: 1767ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.692
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.xrRdkYptisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.701
+!MESSAGE subscribing to classpath changes: sts4.classpath.xrRdkYpt isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.709
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.717
+!MESSAGE subsribers = {sts4.classpath.xrRdkYpt=Send Classpath Notifications(198)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.723
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.732
+!MESSAGE project guitar-tech ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.739
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.747
+!MESSAGE Preparing classpath changed notification guitar-tech
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.753
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.xrRdkYpt => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.758
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.775
+!MESSAGE classpath=101 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.785
+!MESSAGE buffering callback sts4.classpath.xrRdkYpt guitar-tech false 101
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.791
+!MESSAGE executing callback sts4.classpath.xrRdkYpt 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 07:29:41.815
+!MESSAGE executing callback sts4.classpath.xrRdkYpt SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 19:14:53.028
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.xrRdkYpt
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 19:14:53.036
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.xrRdkYpt
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 19:14:53.044
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-04-20 19:14:53.052
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.xrRdkYpt => OK

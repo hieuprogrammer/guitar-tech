@@ -1,0 +1,23 @@
+#guitar-tech {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    background: gold;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-top: 310px;
+}
+
+#guitar-tech:hover {
+    color: orange;
+    background: black;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
