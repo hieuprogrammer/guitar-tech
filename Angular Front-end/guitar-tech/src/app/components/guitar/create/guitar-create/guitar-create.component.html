@@ -43,7 +43,15 @@
             </fieldset>
             <fieldset class="form-group">
                 <label class="text-primary font-weight-bold">Guitar photo:</label>
-                <input #guitarPhoto="ngModel" class="form-control text-center" type="text" [(ngModel)]="guitar.imageUrl" name="guitarPhoto" required="required"/>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload Guitar Photo</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="guitarPhoto" required="required" (change)="handleFileInput($event.target.files)">
+                        <label class="custom-file-label">Choose guitar photo</label>
+                    </div>
+                </div>
             </fieldset>
             <button type="submit" class="btn btn-warning">Save</button>
             <a routerLink="/guitars">

@@ -9,7 +9,15 @@
             </fieldset>
             <fieldset class="form-group">
                 <label class="text-primary font-weight-bold">Brand logo:</label>
-                <input #brandLogo="ngModel" class="form-control text-center" type="text" [(ngModel)]="brand.logoUrl" name="brandLogo" required="required"/>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload Brand Logo</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="brandLogo" required="required" (change)="handleFileInput($event.target.files)">
+                        <label class="custom-file-label">Choose brand logo</label>
+                    </div>
+                </div>
             </fieldset>
             <button type="submit" class="btn btn-warning">Save</button>
             <a routerLink="/brands">
