@@ -56,7 +56,7 @@ public class GuitarServiceImpl implements GuitarService {
         guitar.setNumberOfStrings(guitarDto.getNumberOfStrings());
         guitar.setNumberOfPickups(guitarDto.getNumberOfPickups());
         guitar.setPickupsType(guitarDto.getPickupsType());
-        guitar.setImageUrl(guitarDto.getImageUrl());
+        guitar.setImage(guitarDto.getImageUrl());
         guitar.setPrice(guitarDto.getPrice());
         return GuitarMapper.toGuitarDto(guitar);
     }

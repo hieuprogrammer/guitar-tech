@@ -2,9 +2,7 @@ package io.hieu.guitartech.service.impl.v2;
 
 import io.hieu.guitartech.domain.Brand;
 import io.hieu.guitartech.domain.Guitar;
-import io.hieu.guitartech.dto.mapper.BrandMapper;
 import io.hieu.guitartech.dto.mapper.GuitarMapper;
-import io.hieu.guitartech.dto.model.BrandDto;
 import io.hieu.guitartech.dto.model.GuitarDto;
 import io.hieu.guitartech.repository.GuitarRepository;
 import io.hieu.guitartech.service.v2.GuitarServiceV2;
@@ -30,6 +28,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
     public GuitarDto save(GuitarDto guitarDto) {
         Guitar guitar = GuitarMapper.toGuitar(guitarDto);
         guitar = guitarRepository.save(guitar);
+
         return GuitarMapper.toGuitarDto(guitar);
     }
 
@@ -40,6 +39,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
         for (Guitar guitar : guitars) {
             guitarDtos.add(GuitarMapper.toGuitarDto(guitar));
         }
+
         return guitarDtos;
     }
 
@@ -60,6 +60,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
         for (Guitar guitar : guitars) {
             guitarDtos.add(GuitarMapper.toGuitarDto(guitar));
         }
+
         return guitarDtos;
     }
 
@@ -72,8 +73,9 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
         guitar.setNumberOfStrings(guitarDto.getNumberOfStrings());
         guitar.setNumberOfPickups(guitarDto.getNumberOfPickups());
         guitar.setPickupsType(guitarDto.getPickupsType());
-        guitar.setImageUrl(guitarDto.getImageUrl());
+        guitar.setImage(guitarDto.getImageUrl());
         guitar.setPrice(guitarDto.getPrice());
+
         return GuitarMapper.toGuitarDto(guitar);
     }
 

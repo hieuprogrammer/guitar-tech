@@ -18,14 +18,16 @@
             </div>
             <table class="table table-striped table-bordered table-hover table-responsive text-center">
                 <thead class="thead-dark">
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Number of Frets</th>
-                    <th>Number of Strings</th>
-                    <th>Number of Pickups</th>
-                    <th>Pickups Type</th>
-                    <th>Price</th>
-                    <th colspan="3">Actions</th>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Number of Frets</th>
+                        <th>Number of Strings</th>
+                        <th>Number of Pickups</th>
+                        <th>Pickups Type</th>
+                        <th>Price</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr th:each="guitarDto : ${guitarDtos}">

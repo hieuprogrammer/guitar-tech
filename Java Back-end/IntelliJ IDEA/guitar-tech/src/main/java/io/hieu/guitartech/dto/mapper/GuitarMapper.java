@@ -15,7 +15,7 @@ public class GuitarMapper {
                 guitar.getNumberOfStrings(),
                 guitar.getNumberOfPickups(),
                 guitar.getPickupsType(),
-                guitar.getImageUrl(),
+                guitar.getImage(),
                 guitar.getPrice()
         );
     }
@@ -28,7 +28,7 @@ public class GuitarMapper {
         guitar.setNumberOfStrings(guitarDto.getNumberOfStrings());
         guitar.setNumberOfPickups(guitarDto.getNumberOfPickups());
         guitar.setPickupsType(guitarDto.getPickupsType());
-        guitar.setImageUrl(guitarDto.getImageUrl());
+        guitar.setImage(guitarDto.getImageUrl());
         guitar.setPrice(guitarDto.getPrice());
         return guitar;
     }
