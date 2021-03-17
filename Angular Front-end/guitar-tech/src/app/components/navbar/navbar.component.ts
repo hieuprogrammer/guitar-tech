@@ -15,5 +15,4 @@ export class NavbarComponent implements OnInit {
   search(keyword: string) {
     // TODO
   }
-
 }

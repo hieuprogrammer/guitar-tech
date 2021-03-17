@@ -33,7 +33,7 @@ public class Guitar extends BaseEntity {
 
     private String pickupsType;
 
-    private String imageUrl;
+    private String image;
 
     private Double price;
 }

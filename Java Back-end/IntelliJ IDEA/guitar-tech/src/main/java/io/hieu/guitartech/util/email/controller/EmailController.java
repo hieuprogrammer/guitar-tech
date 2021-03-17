@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@RequestMapping(name = "Email Controller", path = { "/api/v2/email", "/api/v2/email.html" })
+@RequestMapping(name = "Email Controller", path = { "/api/v2/email" })
 @Controller
 public class EmailController {
     public JavaMailSender javaMailSender;
@@ -20,7 +20,7 @@ public class EmailController {
     }
 
     @ResponseBody
-    @GetMapping(path = { "/send-email" })
+    @GetMapping(path = { "/send-email", "/send-email/" })
     public String sendEmail() {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 

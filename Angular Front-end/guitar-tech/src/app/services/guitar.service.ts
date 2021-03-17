@@ -29,4 +29,8 @@ export class GuitarService {
   deleteGuitarById(id: number) {
     return this.httpClient.delete(`${GUITARS_URL_V2}/${id}`);
   }
+
+  searchGuitar(keyword: string) {
+    return this.httpClient.get<Guitar[]>(`${GUITARS_URL_V2}?search=${keyword}`);
+  }
 }

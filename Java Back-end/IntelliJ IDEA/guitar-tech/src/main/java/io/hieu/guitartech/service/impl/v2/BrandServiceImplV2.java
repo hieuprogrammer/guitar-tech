@@ -2,7 +2,6 @@ package io.hieu.guitartech.service.impl.v2;
 
 import io.hieu.guitartech.domain.Brand;
 import io.hieu.guitartech.dto.mapper.BrandMapper;
-import io.hieu.guitartech.dto.mapper.GuitarMapper;
 import io.hieu.guitartech.dto.model.BrandDto;
 import io.hieu.guitartech.repository.BrandRepository;
 import io.hieu.guitartech.service.v2.BrandServiceV2;
@@ -10,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

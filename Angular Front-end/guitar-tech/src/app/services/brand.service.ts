@@ -29,4 +29,8 @@ export class BrandService {
   deleteBrandById(id: number) {
     return this.httpClient.delete(`${BRANDS_URL_V2}/${id}`);
   }
+
+  searchBrand(keyword: string) {
+    return this.httpClient.get<Brand[]>(`${BRANDS_URL_V2}?search=${keyword}`);
+  }
 }
