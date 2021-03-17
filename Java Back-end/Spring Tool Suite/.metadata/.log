@@ -508,6 +508,7 @@ Binding(CTRL+SHIFT+T,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.mylyn.tasks.core 4 0 2020-08-01 14:00:08.720
 !MESSAGE Unexpected error while loading repository template extensions
@@ -1412,3 +1413,5 @@ Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotati
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-02 19:59:14.723
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.YfnDIlNv => OK
+=======
+>>>>>>> 01cc52888323b7b7268e68d34b5d24a5e5a2a855

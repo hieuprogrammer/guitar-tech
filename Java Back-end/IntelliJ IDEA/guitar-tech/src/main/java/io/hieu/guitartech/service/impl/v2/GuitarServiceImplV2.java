@@ -28,6 +28,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
     public GuitarDto save(GuitarDto guitarDto) {
         Guitar guitar = GuitarMapper.toGuitar(guitarDto);
         guitar = guitarRepository.save(guitar);
+
         return GuitarMapper.toGuitarDto(guitar);
     }
 
@@ -38,6 +39,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
         for (Guitar guitar : guitars) {
             guitarDtos.add(GuitarMapper.toGuitarDto(guitar));
         }
+
         return guitarDtos;
     }
 
@@ -58,6 +60,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
         for (Guitar guitar : guitars) {
             guitarDtos.add(GuitarMapper.toGuitarDto(guitar));
         }
+
         return guitarDtos;
     }
 
@@ -72,6 +75,7 @@ public class GuitarServiceImplV2 implements GuitarServiceV2 {
         guitar.setPickupsType(guitarDto.getPickupsType());
         guitar.setImage(guitarDto.getImageUrl());
         guitar.setPrice(guitarDto.getPrice());
+
         return GuitarMapper.toGuitarDto(guitar);
     }
 

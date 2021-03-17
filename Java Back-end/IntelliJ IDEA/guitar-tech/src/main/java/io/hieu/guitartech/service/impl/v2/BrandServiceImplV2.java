@@ -27,6 +27,7 @@ public class BrandServiceImplV2 implements BrandServiceV2 {
     public BrandDto save(BrandDto brandDto) {
         Brand brand = BrandMapper.toBrand(brandDto);
         brand = brandRepository.save(brand);
+
         return BrandMapper.toBrandDto(brand);
     }
 
@@ -37,6 +38,7 @@ public class BrandServiceImplV2 implements BrandServiceV2 {
         for (Brand brand : brands) {
             brandDtos.add(BrandMapper.toBrandDto(brand));
         }
+
         return brandDtos;
     }
 
@@ -57,6 +59,7 @@ public class BrandServiceImplV2 implements BrandServiceV2 {
         for (Brand brand : brands) {
             brandDtos.add(BrandMapper.toBrandDto(brand));
         }
+
         return brandDtos;
     }
 
@@ -65,6 +68,7 @@ public class BrandServiceImplV2 implements BrandServiceV2 {
         Brand brand = brandRepository.findById(brandId).get();
         brand.setName(brandDto.getName());
         brand.setLogoUrl(brandDto.getLogoUrl());
+
         return BrandMapper.toBrandDto(brand);
     }
 

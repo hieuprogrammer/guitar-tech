@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Deprecated
-@CrossOrigin(origins = { "http://127.0.0.1:4200" })
+@CrossOrigin(origins = { "http://127.0.0.1:4200", "http://localhost:4200" })
 @RequestMapping(path = { "/api/v1/brands", "/api/v1/brands.html" })
 @RestController
 public class BrandController {
