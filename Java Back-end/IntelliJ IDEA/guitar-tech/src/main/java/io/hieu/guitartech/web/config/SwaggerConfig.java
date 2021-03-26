@@ -1,4 +1,4 @@
-package io.hieu.guitartech.config;
+package io.hieu.guitartech.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
