@@ -4,4 +4,4 @@
 \    \_\  \    |  /|   | |    |/    |    \    |   \   |    |    |        \\     \___\    Y    /
  \______  /______/ |___| |____|\____|__  /____|_  /   |____|   /_______  / \______  /\___|_  /
         \/                             \/       \/                     \/         \/       \/
-Created by hieu.minhle@outlook.com
+Created by Hieu Minh Le (hieu.minhle@outlook.com).
