@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Hieu\Computer_Programming\Computer_Programs\Java\guitar-tech\Java Back-end\IntelliJ IDEA\guitar-tech"/>
 			<item value="D:\Hieu\Computer_Programming\Computer_Programs\Java\guitar-tech\IntelliJ\guitar-tech"/>
 		</list>
 		<list key="projectNameTemplate">
