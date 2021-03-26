@@ -1,7 +1,9 @@
 spring:
   banner:
     image:
-      location: duke.png
+#      location: duke.png
+      location: java-duke.png
+#      location: Hieu.jpg
 
 # Configurations to use H2 database:
 #  datasource:
@@ -16,7 +18,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/guitar_tech
     username: root
-    password: baxacuaanh0751961
+    password: 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     properties:
